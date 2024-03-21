@@ -2,9 +2,7 @@
 //
 //     final paymentResponseModel = paymentResponseModelFromJson(jsonString);
 
-import 'dart:developer';
-
-import 'package:phone_pe_pg/phone_pe_pg.dart';
+// ignore_for_file: public_member_api_docs, sort_constructors_first, omit_local_variable_types
 
 /// PaymentResponseModel
 class PaymentResponseModel {
@@ -13,11 +11,11 @@ class PaymentResponseModel {
   PaymentResponseModel({this.data});
 
   PaymentResponseModel.fromJson(Map<String, dynamic> json) {
-    data = json['data'] != null ? new Data2.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data2.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
+    final Map<String, dynamic> data = <String, dynamic>{};
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -37,14 +35,14 @@ class Data2 {
     success = json['success'];
     code = json['code'];
     message = json['message'];
-    data = json['data'] != null ? new Data.fromJson(json['data']) : null;
+    data = json['data'] != null ? Data.fromJson(json['data']) : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['success'] = this.success;
-    data['code'] = this.code;
-    data['message'] = this.message;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['success'] = success;
+    data['code'] = code;
+    data['message'] = message;
     if (this.data != null) {
       data['data'] = this.data!.toJson();
     }
@@ -63,16 +61,16 @@ class Data {
     merchantId = json['merchantId'];
     merchantTransactionId = json['merchantTransactionId'];
     instrumentResponse = json['instrumentResponse'] != null
-        ? new InstrumentResponse.fromJson(json['instrumentResponse'])
+        ? InstrumentResponse.fromJson(json['instrumentResponse'])
         : null;
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['merchantId'] = this.merchantId;
-    data['merchantTransactionId'] = this.merchantTransactionId;
-    if (this.instrumentResponse != null) {
-      data['instrumentResponse'] = this.instrumentResponse!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['merchantId'] = merchantId;
+    data['merchantTransactionId'] = merchantTransactionId;
+    if (instrumentResponse != null) {
+      data['instrumentResponse'] = instrumentResponse!.toJson();
     }
     return data;
   }
@@ -92,16 +90,16 @@ class InstrumentResponse {
   InstrumentResponse.fromJson(Map<String, dynamic> json) {
     type = json['type'];
     redirectInfo = json['redirectInfo'] != null
-        ? new RedirectInfo.fromJson(json['redirectInfo'])
+        ? RedirectInfo.fromJson(json['redirectInfo'])
         : null;
     intentUrl = json['intentUrl'];
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['type'] = this.type;
-    if (this.redirectInfo != null) {
-      data['redirectInfo'] = this.redirectInfo!.toJson();
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['type'] = type;
+    if (redirectInfo != null) {
+      data['redirectInfo'] = redirectInfo!.toJson();
     }
     data['intentUrl'] = intentUrl;
     return data;
@@ -120,9 +118,9 @@ class RedirectInfo {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['url'] = this.url;
-    data['method'] = this.method;
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['url'] = url;
+    data['method'] = method;
     return data;
   }
 }

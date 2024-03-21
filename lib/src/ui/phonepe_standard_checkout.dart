@@ -1,10 +1,7 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:phone_pe_pg/phone_pe_pg.dart';
 import 'package:phone_pe_pg/src/providers/payment_provider.dart';
-import 'package:phone_pe_pg/src/repository/payment_repository.dart';
 import 'package:provider/provider.dart';
 
 /// PhonePeStandardCheckout
@@ -79,7 +76,7 @@ class PhonePeStandardCheckout extends StatelessWidget {
               } else {
                 await inAppWebViewController!.loadUrl(
                   urlRequest:
-                      URLRequest(url: Uri.parse(paymentRequest.redirectUrl!)),
+                      URLRequest(url: WebUri(paymentRequest.redirectUrl!)),
                 );
               }
               return true;
@@ -138,11 +135,9 @@ class PhonePeStandardCheckout extends StatelessWidget {
                         : InAppWebView(
                             key: inAppWebViewKey,
                             initialUrlRequest: URLRequest(
-                              url: Uri.parse(urlString),
+                              url: WebUri(urlString),
                             ),
-                            initialOptions: InAppWebViewGroupOptions(
-                              crossPlatform: InAppWebViewOptions(),
-                            ),
+                            initialSettings: InAppWebViewSettings(),
                             onWebViewCreated: (controller) {
                               inAppWebViewController = controller;
                             },

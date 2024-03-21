@@ -68,8 +68,6 @@ class PaymentRepository {
       log(response.statusCode.toString());
       if (response.statusCode == 200 && response.data != null) {
         log(response.toString());
-        print("================================");
-        print(response.runtimeType);
         return PaymentResponseModel.fromJson(response.data);
       } else {
         throw Exception('${response.statusCode} ${response.statusMessage}');
